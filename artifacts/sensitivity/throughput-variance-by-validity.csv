@@ -1,0 +1,17 @@
+model,prompt,requested_backend,reported_backends,validity_note,runs,mean_tok_s,sd_tok_s,min_tok_s,max_tok_s
+gemma4-e2b-sm8750,long,CPU,NPU,reported_backend_mismatch,3,38.721033,1.400802,37.6532,40.7
+gemma4-e2b-sm8750,long,GPU,NPU,reported_backend_mismatch,2,37.8785,0.4293,37.4492,38.3078
+gemma4-e2b-sm8750,long,NPU,NPU,ok_usb_powered,20,45.072905,8.038438,29.725,57.1246
+gemma4-e2b-sm8750,long,NPU,NPU,ok,5,42.83642,11.270196,29.0712,57.5835
+gemma4-e2b-sm8750,long,NPU,NPU,ok_high_thermal,4,39.4712,6.567978,33.3214,50.4499
+gemma4-e2b-sm8750,medium,CPU,NPU,reported_backend_mismatch,2,28.4465,0.6906,27.7559,29.1371
+gemma4-e2b-sm8750,medium,NPU,NPU,ok_usb_powered,14,43.843693,6.517122,26.6,49.0936
+gemma4-e2b-sm8750,medium,NPU,NPU,ok,4,43.5682,6.75239,32.3359,49.8772
+gemma4-e2b-sm8750,medium,NPU,NPU,ok_high_thermal,11,33.725109,3.797618,28.1699,38.5244
+gemma4-e2b-sm8750,short,CPU,NPU,reported_backend_mismatch,9,43.289522,3.027504,39.3388,49.2017
+gemma4-e2b-sm8750,short,GPU,NPU,reported_backend_mismatch,7,42.826486,2.316225,40.129,47.1347
+gemma4-e2b-sm8750,short,NPU,NPU,ok_usb_powered,26,44.509923,3.742997,37.8535,50.889
+gemma4-e2b-sm8750,short,NPU,NPU,ok,6,42.9898,5.986899,34.4798,54.4099
+gemma4-e2b-sm8750,short,NPU,NPU,ok_high_thermal,4,42.047875,3.156473,36.5976,44.2689
+gemma4-e2b-sm8750,unknown,NPU,NPU,ok,5,53.70488,3.250225,50.3935,57.686
+gemma4-e2b-sm8750,unknown,NPU,NPU,ok_usb_powered,1,53.6393,0.0,53.6393,53.6393

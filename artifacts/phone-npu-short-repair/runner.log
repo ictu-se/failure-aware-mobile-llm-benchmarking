@@ -1,0 +1,17 @@
+﻿2026-06-12T16:55:43.5860601+07:00 waiting for AWRT025806000280
+2026-06-12T16:56:06.5362406+07:00 waiting for AWRT025806000280
+2026-06-12T16:57:06.7569523+07:00 START 20260612-165706-MBH-N49-bai4-npu-controlled-20iter-repair-short-npu
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-165707-799.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-165706-MBH-N49-bai4-npu-controlled-20iter-repair-short-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-165706-MBH-N49-bai4-npu-controlled-20iter-repair-short-npu"
+/sdcard/Android/data/com.example.qnn_litertlm_gemma/files/Documents/benchmarks/20260612-165706-MBH-N49-bai4-npu-controlled-20iter-repair-short-npu.csv: 1 file pulled, 0 skipped. 0.2 MB/s (2410 bytes in 0.010s)
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-165706-MBH-N49-bai4-npu-controlled-20iter-repair-short-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-165706-MBH-N49-bai4-npu-controlled-20iter-repair-short-npu\benchmark-output.csv
+04-failure-aware-mobile-llm-benchmarking\artifacts\mobile-benchmark-validation-report.md
+04-failure-aware-mobile-llm-benchmarking\artifacts\focused-gemma-litertlm-validation-report.md
+04-failure-aware-mobile-llm-benchmarking\artifacts\strict-backend-evidence\strict-backend-summary.md
+04-failure-aware-mobile-llm-benchmarking\artifacts\sensitivity\failure-sensitivity-analysis.md
+2026-06-12T16:58:03.4386012+07:00 END 20260612-165706-MBH-N49-bai4-npu-controlled-20iter-repair-short-npu

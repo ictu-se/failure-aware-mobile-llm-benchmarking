@@ -1,0 +1,30 @@
+# Bootstrap Validation Effects
+
+- Bootstrap samples: 5000
+- Global runs: 316
+- Focused Gemma LiteRT-LM runs: 123
+- Strict backend runs: 26
+
+## Bootstrap metrics
+
+| Metric | N | Mean | CI95 low | CI95 high |
+|---|---:|---:|---:|---:|
+| global_backend_mismatch_share | 316 | 0.104549 | 0.072785 | 0.139241 |
+| global_partial_or_missing_share | 316 | 0.116972 | 0.082278 | 0.155063 |
+| global_all_measurements_failed_share | 316 | 0.08208 | 0.053797 | 0.113924 |
+| focused_backend_mismatch_share | 123 | 0.187397 | 0.121951 | 0.260163 |
+| focused_high_thermal_ge100_share | 123 | 0.210676 | 0.138211 | 0.284553 |
+| focused_usb_powered_share | 123 | 0.495803 | 0.406504 | 0.585366 |
+| strict_cpu_long_mean_tok_s | 4 | 18.250611 | 16.953875 | 19.369325 |
+| strict_cpu_medium_mean_tok_s | 4 | 13.204953 | 12.67585 | 13.939825 |
+| strict_cpu_short_mean_tok_s | 5 | 22.952888 | 18.80568 | 25.75122 |
+| strict_gpu_success_share | 13 | 0.0 | 0.0 | 0.0 |
+
+## Focused mismatch breakdown
+
+| Requested | Reported | Runs |
+|---|---|---:|
+| CPU | NPU | 14 |
+| GPU | NPU | 9 |
+
+Interpretation: these intervals quantify the robustness of the paper's main validation claims. They should be used as support for methodology claims, not as population estimates over all mobile devices.

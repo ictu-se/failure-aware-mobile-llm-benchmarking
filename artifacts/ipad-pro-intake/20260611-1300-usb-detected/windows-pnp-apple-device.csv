@@ -1,0 +1,6 @@
+﻿"Status","Class","FriendlyName","InstanceId"
+"OK","USB","USB Composite Device","USB\VID_0C45&PID_6718\5&B6F046&0&5"
+"OK","USBDevice","Apple Mobile Device USB Composite Device","USB\VID_05AC&PID_12AB\00008027001D112E2EEB002E"
+"OK","WPD","Apple iPad","USB\VID_05AC&PID_12AB&MI_00\9&3A872932&0&0000"
+"OK","HIDClass","Converted Portable Device Control device","BUTTONCONVERTER\CONVERTEDDEVICE\4&32F8A6A3&0&0"
+"OK","HIDClass","Portable Device Control device","HID\INTC816&COL02\3&36A7043C&0&0001"

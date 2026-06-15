@@ -1,0 +1,1 @@
+﻿run_id,device,os,runtime,model,app,requested_compute_units,reported_compute_units,prompt_bucket,iteration,status,ttft_ms,total_ms,generated_tokens,tokens_per_second,battery_start,battery_end,battery_state,thermal_state,notes

@@ -1,0 +1,83 @@
+﻿2026-06-12T12:30:03.4086318+07:00 START repeat=1 prefix=20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-123004-552.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-short-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-short-npu"
+/sdcard/Android/data/com.example.qnn_litertlm_gemma/files/Documents/benchmarks/20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-short-npu.csv: 1 file pulled, 0 skipped. 1.2 MB/s (2410 bytes in 0.002s)
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-short-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-short-npu\benchmark-output.csv
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-123103-753.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-medium-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-medium-npu"
+/sdcard/Android/data/com.example.qnn_litertlm_gemma/files/Documents/benchmarks/20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-medium-npu.csv: 1 file pulled, 0 skipped. 1.2 MB/s (2525 bytes in 0.002s)
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-medium-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-medium-npu\benchmark-output.csv
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-123646-508.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-long-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-long-npu"
+/sdcard/Android/data/com.example.qnn_litertlm_gemma/files/Documents/benchmarks/20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-long-npu.csv: 1 file pulled, 0 skipped. 1.5 MB/s (2433 bytes in 0.002s)
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-long-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1-long-npu\benchmark-output.csv
+2026-06-12T12:37:40.1385387+07:00 END repeat=1 prefix=20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1
+2026-06-12T12:37:40.1385387+07:00 START repeat=2 prefix=20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-123741-193.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-short-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-short-npu"
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-short-npu
+Benchmark completion marker not found on device: /sdcard/Android/data/com.example.qnn_litertlm_gemma/files/Documents/be
+nchmarks/20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-short-npu.done
+At E:\Edge devices\01-sustained-mobile-inference\scripts\run_litert_lm_benchmark.ps1:83 char:9
++         throw "Benchmark completion marker not found on device: $remo ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Benchmark compl...-short-npu.done:String) [], RuntimeException
+    + FullyQualifiedErrorId : Benchmark completion marker not found on device: /sdcard/Android/data/com.example.qnn_li 
+   tertlm_gemma/files/Documents/benchmarks/20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-short-npu.done
+ 
+Traceback (most recent call last):
+  File "E:\Edge devices\01-sustained-mobile-inference\scripts\summarize_paper_run.py", line 146, in <module>
+    main()
+    ~~~~^^
+  File "E:\Edge devices\01-sustained-mobile-inference\scripts\summarize_paper_run.py", line 138, in main
+    "benchmark": load_benchmark(run_dir / "benchmark-output.csv"),
+                 ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Edge devices\01-sustained-mobile-inference\scripts\summarize_paper_run.py", line 20, in load_benchmark
+    rows = list(csv.DictReader(csv_path.open("r", encoding="utf-8")))
+                               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danie\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'E:\\Edge devices\\01-sustained-mobile-inference\\logs\\runs\\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-short-npu\\benchmark-output.csv'
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-144246-898.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-medium-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-medium-npu"
+/sdcard/Android/data/com.example.qnn_litertlm_gemma/files/Documents/benchmarks/20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-medium-npu.csv: 1 file pulled, 0 skipped. 0.4 MB/s (2525 bytes in 0.005s)
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-medium-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-medium-npu\benchmark-output.csv
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-144906-328.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-long-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-long-npu"
+/sdcard/Android/data/com.example.qnn_litertlm_gemma/files/Documents/benchmarks/20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-long-npu.csv: 1 file pulled, 0 skipped. 1.1 MB/s (2433 bytes in 0.002s)
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-long-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2-long-npu\benchmark-output.csv
+2026-06-12T14:50:00.1519923+07:00 END repeat=2 prefix=20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2
+04-failure-aware-mobile-llm-benchmarking\artifacts\mobile-benchmark-validation-report.md
+04-failure-aware-mobile-llm-benchmarking\artifacts\focused-gemma-litertlm-validation-report.md
+04-failure-aware-mobile-llm-benchmarking\artifacts\strict-backend-evidence\strict-backend-summary.md
+04-failure-aware-mobile-llm-benchmarking\artifacts\sensitivity\failure-sensitivity-analysis.md

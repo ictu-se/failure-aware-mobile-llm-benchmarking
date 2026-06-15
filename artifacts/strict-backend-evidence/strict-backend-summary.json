@@ -1,0 +1,92 @@
+{
+  "runs": 26,
+  "strict_valid_runs": 13,
+  "cpu_ok_rows": 605,
+  "gpu_ok_rows": 0,
+  "summary": [
+    {
+      "prompt": "long",
+      "requested_backend": "CPU",
+      "runs": 4,
+      "successful_runs": 4,
+      "failed_runs": 0,
+      "ok_rows": 200,
+      "reported_backends": "CPU",
+      "mean_tok_s_across_successes": 18.2551,
+      "sd_tok_s_across_successes": 1.1851,
+      "min_tok_s": 16.4176,
+      "max_tok_s": 19.7187,
+      "max_thermal_c": 78.4
+    },
+    {
+      "prompt": "long",
+      "requested_backend": "GPU",
+      "runs": 4,
+      "successful_runs": 0,
+      "failed_runs": 4,
+      "ok_rows": 0,
+      "reported_backends": "",
+      "mean_tok_s_across_successes": "",
+      "sd_tok_s_across_successes": "",
+      "min_tok_s": "",
+      "max_tok_s": "",
+      "max_thermal_c": 53.6
+    },
+    {
+      "prompt": "medium",
+      "requested_backend": "CPU",
+      "runs": 4,
+      "successful_runs": 4,
+      "failed_runs": 0,
+      "ok_rows": 200,
+      "reported_backends": "CPU",
+      "mean_tok_s_across_successes": 13.2038,
+      "sd_tok_s_across_successes": 0.6405,
+      "min_tok_s": 12.556,
+      "max_tok_s": 14.2677,
+      "max_thermal_c": 85.3
+    },
+    {
+      "prompt": "medium",
+      "requested_backend": "GPU",
+      "runs": 4,
+      "successful_runs": 0,
+      "failed_runs": 4,
+      "ok_rows": 0,
+      "reported_backends": "",
+      "mean_tok_s_across_successes": "",
+      "sd_tok_s_across_successes": "",
+      "min_tok_s": "",
+      "max_tok_s": "",
+      "max_thermal_c": 54.0
+    },
+    {
+      "prompt": "short",
+      "requested_backend": "CPU",
+      "runs": 5,
+      "successful_runs": 5,
+      "failed_runs": 0,
+      "ok_rows": 205,
+      "reported_backends": "CPU",
+      "mean_tok_s_across_successes": 22.9304,
+      "sd_tok_s_across_successes": 4.0664,
+      "min_tok_s": 15.113,
+      "max_tok_s": 26.7809,
+      "max_thermal_c": 79.9
+    },
+    {
+      "prompt": "short",
+      "requested_backend": "GPU",
+      "runs": 5,
+      "successful_runs": 0,
+      "failed_runs": 5,
+      "ok_rows": 0,
+      "reported_backends": "",
+      "mean_tok_s_across_successes": "",
+      "sd_tok_s_across_successes": "",
+      "min_tok_s": "",
+      "max_tok_s": "",
+      "max_thermal_c": 57.5
+    }
+  ]
+}

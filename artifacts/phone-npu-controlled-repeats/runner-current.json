@@ -1,0 +1,28 @@
+﻿{
+    "state":  "finished",
+    "progress_percent":  100,
+    "repeat_index":  2,
+    "repeats":  2,
+    "current_prefix":  "",
+    "iterations":  20,
+    "warmup":  3,
+    "device_serial":  "AWRT025806000280",
+    "started_at":  "2026-06-12T12:30:03.3124096+07:00",
+    "updated_at":  "2026-06-12T14:50:03.5328195+07:00",
+    "notes":  "NPU controlled repeats finished and artifacts refreshed.",
+    "completed":  [
+                      {
+                          "repeat":  1,
+                          "prefix":  "20260612-123003-MBH-N49-bai4-npu-controlled-20iter-r1",
+                          "finished_at":  "2026-06-12T12:37:40.1385387+07:00"
+                      },
+                      {
+                          "repeat":  2,
+                          "prefix":  "20260612-123740-MBH-N49-bai4-npu-controlled-20iter-r2",
+                          "finished_at":  "2026-06-12T14:50:00.1519923+07:00"
+                      }
+                  ],
+    "failed":  [
+
+               ]
+}

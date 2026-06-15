@@ -1,0 +1,67 @@
+﻿{
+    "run_prefix":  "20260609-125938-MBH-N49-bai4-strict-repeat",
+    "state":  "finished",
+    "progress_percent":  100,
+    "completed_conditions":  3,
+    "failed_conditions":  3,
+    "total_conditions":  6,
+    "current":  "done",
+    "updated_at":  "2026-06-09T13:33:50.2565762+07:00",
+    "device_serial":  "AWRT025806000280",
+    "notes":  "Resume matrix finished.",
+    "completed":  [
+                      {
+                          "prompt":  "short",
+                          "backend":  "CPU",
+                          "run_id":  "20260609-125938-MBH-N49-bai4-strict-repeat-short-cpu",
+                          "ok_rows":  50,
+                          "reported":  "CPU",
+                          "tok_s":  24.3447,
+                          "thermal_c":  79.9,
+                          "reused":  false
+                      },
+                      {
+                          "prompt":  "medium",
+                          "backend":  "CPU",
+                          "run_id":  "20260609-125938-MBH-N49-bai4-strict-repeat-medium-cpu",
+                          "ok_rows":  50,
+                          "reported":  "CPU",
+                          "tok_s":  12.556,
+                          "thermal_c":  67.2,
+                          "reused":  false
+                      },
+                      {
+                          "prompt":  "long",
+                          "backend":  "CPU",
+                          "run_id":  "20260609-125938-MBH-N49-bai4-strict-repeat-long-cpu",
+                          "ok_rows":  50,
+                          "reported":  "CPU",
+                          "tok_s":  19.7187,
+                          "thermal_c":  78.4,
+                          "reused":  false
+                      }
+                  ],
+    "failed":  [
+                   {
+                       "prompt":  "short",
+                       "backend":  "GPU",
+                       "run_id":  "20260609-125938-MBH-N49-bai4-strict-repeat-short-gpu",
+                       "error":  "no measured OK rows",
+                       "reported":  ""
+                   },
+                   {
+                       "prompt":  "medium",
+                       "backend":  "GPU",
+                       "run_id":  "20260609-125938-MBH-N49-bai4-strict-repeat-medium-gpu",
+                       "error":  "no measured OK rows",
+                       "reported":  ""
+                   },
+                   {
+                       "prompt":  "long",
+                       "backend":  "GPU",
+                       "run_id":  "20260609-125938-MBH-N49-bai4-strict-repeat-long-gpu",
+                       "error":  "no measured OK rows",
+                       "reported":  ""
+                   }
+               ]
+}

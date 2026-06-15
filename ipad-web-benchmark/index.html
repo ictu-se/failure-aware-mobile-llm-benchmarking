@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iPadOS Benchmark Validation Harness</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --border: #9aa0a6;
+      --accent: #0b57d0;
+    }
+    body {
+      margin: 0;
+      padding: 24px;
+      line-height: 1.45;
+      max-width: 980px;
+    }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    h2 { font-size: 18px; margin-top: 24px; }
+    button, input, select {
+      font: inherit;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: Canvas;
+      color: CanvasText;
+    }
+    button {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 12px 0; }
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 14px;
+    }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--border); padding: 8px; text-align: left; }
+    code, textarea {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+    }
+    textarea { width: 100%; min-height: 180px; box-sizing: border-box; }
+    .muted { color: #6b7280; }
+  </style>
+</head>
+<body>
+  <h1>iPadOS Benchmark Validation Harness</h1>
+  <p class="muted">Browser-based extension for Bài 4. It records device/browser metadata, completion status, measured rows, and exportable JSON/CSV. It does not claim strict Neural Engine/Core ML execution.</p>
+
+  <div class="panel">
+    <h2>Run configuration</h2>
+    <div class="row">
+      <label>Device label <input id="deviceLabel" value="iPad Pro"></label>
+      <label>Iterations <input id="iterations" type="number" min="1" max="200" value="30"></label>
+      <label>Workload
+        <select id="workload">
+          <option value="js-matmul">JavaScript matrix multiply</option>
+          <option value="js-token-sim">JavaScript token-generation simulation</option>
+          <option value="webgpu-probe">WebGPU capability probe</option>
+        </select>
+      </label>
+    </div>
+    <div class="row">
+      <button id="runBtn">Run benchmark</button>
+      <button id="downloadJsonBtn" disabled>Download JSON</button>
+      <button id="downloadCsvBtn" disabled>Download CSV</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Status</h2>
+    <div id="status">Idle</div>
+  </div>
+
+  <div class="panel">
+    <h2>Summary</h2>
+    <table>
+      <tbody id="summaryBody">
+        <tr><td>Rows</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>Export preview</h2>
+    <textarea id="preview" readonly></textarea>
+  </div>
+
+  <script>
+    const state = {
+      result: null
+    };
+
+    function nowIso() {
+      return new Date().toISOString();
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function percentile(values, p) {
+      if (!values.length) return null;
+      const sorted = [...values].sort((a, b) => a - b);
+      const idx = Math.min(sorted.length - 1, Math.max(0, Math.floor((p / 100) * sorted.length)));
+      return sorted[idx];
+    }
+
+    function mean(values) {
+      if (!values.length) return null;
+      return values.reduce((a, b) => a + b, 0) / values.length;
+    }
+
+    function runMatmul(size) {
+      const a = new Float32Array(size * size);
+      const b = new Float32Array(size * size);
+      const c = new Float32Array(size * size);
+      for (let i = 0; i < a.length; i++) {
+        a[i] = (i % 17) / 17;
+        b[i] = (i % 31) / 31;
+      }
+      const t0 = performance.now();
+      for (let i = 0; i < size; i++) {
+        for (let k = 0; k < size; k++) {
+          const aik = a[i * size + k];
+          for (let j = 0; j < size; j++) {
+            c[i * size + j] += aik * b[k * size + j];
+          }
+        }
+      }
+      const t1 = performance.now();
+      return { total_ms: t1 - t0, checksum: c[0] + c[c.length - 1], operations: 2 * size * size * size };
+    }
+
+    function runTokenSim(tokens) {
+      const vocab = 4096;
+      const hidden = 256;
+      const weights = new Float32Array(vocab);
+      for (let i = 0; i < vocab; i++) weights[i] = Math.sin(i) * 0.01;
+      let acc = 0;
+      const t0 = performance.now();
+      for (let t = 0; t < tokens; t++) {
+        let best = -Infinity;
+        let bestId = 0;
+        for (let v = 0; v < vocab; v++) {
+          const score = Math.sin((v + t) % hidden) + weights[v] + acc * 0.000001;
+          if (score > best) {
+            best = score;
+            bestId = v;
+          }
+        }
+        acc += bestId;
+      }
+      const t1 = performance.now();
+      return { total_ms: t1 - t0, checksum: acc, generated_tokens: tokens };
+    }
+
+    async function webGpuProbe() {
+      const t0 = performance.now();
+      const available = !!navigator.gpu;
+      let adapterInfo = {};
+      let status = "unavailable";
+      if (available) {
+        try {
+          const adapter = await navigator.gpu.requestAdapter();
+          if (adapter) {
+            status = "adapter-found";
+            adapterInfo = {
+              features: Array.from(adapter.features || []),
+              limits: adapter.limits ? {
+                maxBufferSize: adapter.limits.maxBufferSize,
+                maxComputeWorkgroupSizeX: adapter.limits.maxComputeWorkgroupSizeX
+              } : {}
+            };
+          } else {
+            status = "no-adapter";
+          }
+        } catch (err) {
+          status = "error:" + err.message;
+        }
+      }
+      const t1 = performance.now();
+      return { total_ms: t1 - t0, status, adapterInfo };
+    }
+
+    function metadata() {
+      return {
+        user_agent: navigator.userAgent,
+        platform: navigator.platform,
+        hardware_concurrency: navigator.hardwareConcurrency || null,
+        device_memory_gb: navigator.deviceMemory || null,
+        language: navigator.language,
+        screen: {
+          width: screen.width,
+          height: screen.height,
+          device_pixel_ratio: window.devicePixelRatio
+        },
+        webgpu_available: !!navigator.gpu,
+        battery_api_available: !!navigator.getBattery,
+        timestamp: nowIso()
+      };
+    }
+
+    function toCsv(result) {
+      const fields = [
+        "run_id", "device", "runtime", "workload", "requested_compute_units", "reported_compute_units",
+        "iteration", "status", "total_ms", "generated_tokens", "tokens_per_second", "operations_per_second",
+        "thermal_state", "battery_state", "notes"
+      ];
+      const lines = [fields.join(",")];
+      for (const row of result.rows) {
+        lines.push(fields.map(f => JSON.stringify(row[f] ?? "")).join(","));
+      }
+      return lines.join("\n");
+    }
+
+    function updateSummary(result) {
+      const body = document.getElementById("summaryBody");
+      const okRows = result.rows.filter(r => r.status === "ok");
+      const times = okRows.map(r => r.total_ms).filter(v => Number.isFinite(v));
+      const tok = okRows.map(r => r.tokens_per_second).filter(v => Number.isFinite(v));
+      body.innerHTML = `
+        <tr><td>Run ID</td><td><code>${result.run_id}</code></td></tr>
+        <tr><td>Rows</td><td>${result.rows.length}</td></tr>
+        <tr><td>OK rows</td><td>${okRows.length}</td></tr>
+        <tr><td>Mean total ms</td><td>${mean(times)?.toFixed(3) ?? ""}</td></tr>
+        <tr><td>P95 total ms</td><td>${percentile(times, 95)?.toFixed(3) ?? ""}</td></tr>
+        <tr><td>Mean tokens/s</td><td>${mean(tok)?.toFixed(3) ?? ""}</td></tr>
+        <tr><td>WebGPU available</td><td>${result.metadata.webgpu_available}</td></tr>
+      `;
+      document.getElementById("preview").value = JSON.stringify(result, null, 2);
+      document.getElementById("downloadJsonBtn").disabled = false;
+      document.getElementById("downloadCsvBtn").disabled = false;
+    }
+
+    function download(name, content, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = name;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    async function runBenchmark() {
+      const runBtn = document.getElementById("runBtn");
+      runBtn.disabled = true;
+      const status = document.getElementById("status");
+      const iterations = Number(document.getElementById("iterations").value);
+      const workload = document.getElementById("workload").value;
+      const device = document.getElementById("deviceLabel").value || "iPad";
+      const run_id = new Date().toISOString().replace(/[-:.TZ]/g, "").slice(0, 14) + "-ipad-web-" + workload;
+      const result = {
+        schema: "ipad_browser_validation_v1",
+        run_id,
+        device,
+        runtime: "Safari/WebKit browser",
+        requested_compute_units: "browser-default",
+        reported_compute_units: "not-exposed",
+        workload,
+        metadata: metadata(),
+        started_at: nowIso(),
+        rows: []
+      };
+      try {
+        for (let i = 0; i < iterations; i++) {
+          status.textContent = `Running ${workload}: ${i + 1}/${iterations}`;
+          await sleep(20);
+          const row = {
+            run_id,
+            device,
+            runtime: result.runtime,
+            workload,
+            requested_compute_units: result.requested_compute_units,
+            reported_compute_units: result.reported_compute_units,
+            iteration: i,
+            status: "ok",
+            total_ms: null,
+            generated_tokens: "",
+            tokens_per_second: "",
+            operations_per_second: "",
+            thermal_state: "not-exposed-in-browser",
+            battery_state: "not-exposed-in-browser",
+            notes: ""
+          };
+          try {
+            if (workload === "js-matmul") {
+              const r = runMatmul(96);
+              row.total_ms = r.total_ms;
+              row.operations_per_second = r.operations / (r.total_ms / 1000);
+              row.notes = "checksum=" + r.checksum.toFixed(4);
+            } else if (workload === "js-token-sim") {
+              const r = runTokenSim(96);
+              row.total_ms = r.total_ms;
+              row.generated_tokens = r.generated_tokens;
+              row.tokens_per_second = r.generated_tokens / (r.total_ms / 1000);
+              row.notes = "checksum=" + r.checksum;
+            } else {
+              const r = await webGpuProbe();
+              row.total_ms = r.total_ms;
+              row.status = r.status.startsWith("error") ? "error" : "ok";
+              row.notes = JSON.stringify(r);
+            }
+          } catch (err) {
+            row.status = "error";
+            row.notes = err.message;
+          }
+          result.rows.push(row);
+          updateSummary(result);
+        }
+        result.finished_at = nowIso();
+        state.result = result;
+        status.textContent = "Finished. Download JSON/CSV and place it in the iPad intake folder.";
+      } finally {
+        runBtn.disabled = false;
+      }
+    }
+
+    document.getElementById("runBtn").addEventListener("click", runBenchmark);
+    document.getElementById("downloadJsonBtn").addEventListener("click", () => {
+      if (state.result) download(state.result.run_id + ".json", JSON.stringify(state.result, null, 2), "application/json");
+    });
+    document.getElementById("downloadCsvBtn").addEventListener("click", () => {
+      if (state.result) download(state.result.run_id + ".csv", toCsv(state.result), "text/csv");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-101543-420.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-short-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-short-npu"
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-short-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-short-npu\benchmark-output.csv
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-101643-182.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-medium-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-medium-npu"
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-medium-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-medium-npu\benchmark-output.csv
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260612-102231-398.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-long-npu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-long-npu"
+Collectors stopped and final snapshots saved.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-long-npu
+LiteRT-LM benchmark completed. Local CSV: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260612-101542-MBH-N49-bai4-npu-controlled-20iter-long-npu\benchmark-output.csv

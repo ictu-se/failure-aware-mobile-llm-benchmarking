@@ -1,0 +1,6 @@
+﻿2026-06-08T20:25:05.6426609+07:00 DEVICE AWRT025806000280
+Device baseline written to E:\Edge devices\01-sustained-mobile-inference\logs\device-baseline\device-baseline-20260608-202506-755.txt
+Collectors started.
+Run directory: E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260608-202445-MBH-N49-bai4-strict-backend-priority-short-cpu
+When the benchmark run is finished, execute:
+powershell -ExecutionPolicy Bypass -File scripts\stop_paper_grade_run.ps1 -RunDir "E:\Edge devices\01-sustained-mobile-inference\logs\runs\20260608-202445-MBH-N49-bai4-strict-backend-priority-short-cpu"

@@ -1,0 +1,11 @@
+﻿{
+    "state":  "finished",
+    "progress_percent_time":  8.48,
+    "current_step":  "done",
+    "device_serial":  "AWRT025806000280",
+    "run_prefix":  "20260611-225410-MBH-N49-bai4-strict-repeat",
+    "started_at":  "2026-06-11T22:54:10.5779210+07:00",
+    "deadline":  "2026-06-12T05:54:10.5779210+07:00",
+    "updated_at":  "2026-06-11T23:29:46.6880089+07:00",
+    "notes":  "Strict repeat completed."
+}

@@ -1,0 +1,7 @@
+prompt,requested_backend,runs,successful_runs,failed_runs,ok_rows,reported_backends,mean_tok_s_across_successes,sd_tok_s_across_successes,min_tok_s,max_tok_s,max_thermal_c
+long,CPU,4,4,0,200,CPU,18.2551,1.1851,16.4176,19.7187,78.4
+long,GPU,4,0,4,0,,,,,,53.6
+medium,CPU,4,4,0,200,CPU,13.2038,0.6405,12.556,14.2677,85.3
+medium,GPU,4,0,4,0,,,,,,54.0
+short,CPU,5,5,0,205,CPU,22.9304,4.0664,15.113,26.7809,79.9
+short,GPU,5,0,5,0,,,,,,57.5

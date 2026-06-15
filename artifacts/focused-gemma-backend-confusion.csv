@@ -1,0 +1,4 @@
+﻿"requested_backend","reported_backends","runs","ok_rows"
+"CPU","NPU","14","294"
+"GPU","NPU","9","212"
+"NPU","NPU","79","1281"

@@ -1,0 +1,12 @@
+﻿{
+    "state":  "running",
+    "progress_percent_time":  0.06,
+    "current_step":  "strict-backend-matrix",
+    "device_serial":  "AWRT025806000280",
+    "run_prefix":  "20260608-202445-MBH-N49-bai4-strict-backend-priority",
+    "started_at":  "2026-06-08T20:24:45.3887178+07:00",
+    "deadline":  "2026-06-09T06:24:45.3887178+07:00",
+    "updated_at":  "2026-06-08T20:25:05.6396689+07:00",
+    "adb_path":  "E:\\Edge devices\\01-sustained-mobile-inference\\tools\\android\\platform-tools\\adb.exe",
+    "notes":  "ADB device found. Running strict CPU/GPU backend matrix first."
+}

@@ -1,0 +1,34 @@
+﻿[
+    {
+        "ProcessId":  18624,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -ExecutionPolicy Bypass -File \"E:\\Edge devices\\01-sustained-mobile-inference\\scripts\\run_mobile_prompt_backend_matrix.ps1\" -DeviceSerial AWRT025806000280 -DeviceLabel MBH-N49 -ModelId gemma4-e2b-sm8750 -Backends NPU -RunPrefix 20260612-083526-MBH-N49-bai4-npu-controlled-50iter -Iterations 50 -Warmup 3 "
+    },
+    {
+        "ProcessId":  14868,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy Bypass -File \"E:\\Edge devices\\01-sustained-mobile-inference\\scripts\\run_litert_lm_benchmark.ps1\" -RunId 20260612-083526-MBH-N49-bai4-npu-controlled-50iter-long-npu -DeviceLabel MBH-N49 -ModelId gemma4-e2b-sm8750 -DeviceSerial AWRT025806000280 -PromptId mobile_prompt_long -PromptLengthBucket long -RequestedOutputBucket medium -PreferredBackend NPU -Prompt \"You are a local mobile assistant. Summarize a benchmark session in three bullet points, mention the winning backend, describe the thermal trend, and add one limitation about plugged USB power.\" -Iterations 50 -Warmup 3"
+    },
+    {
+        "ProcessId":  18992,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy Bypass -File \"E:\\Edge devices\\01-sustained-mobile-inference\\scripts\\collector_logcat.ps1\" -AdbPath \"E:\\Edge devices\\01-sustained-mobile-inference\\tools\\android\\platform-tools\\adb.exe\" -OutputPath \"E:\\Edge devices\\01-sustained-mobile-inference\\logs\\runs\\20260612-083526-MBH-N49-bai4-npu-controlled-50iter-long-npu\\logcat.txt\" "
+    },
+    {
+        "ProcessId":  4424,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy Bypass -File \"E:\\Edge devices\\01-sustained-mobile-inference\\scripts\\collector_battery.ps1\" -AdbPath \"E:\\Edge devices\\01-sustained-mobile-inference\\tools\\android\\platform-tools\\adb.exe\" -OutputPath \"E:\\Edge devices\\01-sustained-mobile-inference\\logs\\runs\\20260612-083526-MBH-N49-bai4-npu-controlled-50iter-long-npu\\battery-timeseries.csv\" -IntervalSec \"5\" "
+    },
+    {
+        "ProcessId":  2496,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy Bypass -File \"E:\\Edge devices\\01-sustained-mobile-inference\\scripts\\collector_thermal.ps1\" -AdbPath \"E:\\Edge devices\\01-sustained-mobile-inference\\tools\\android\\platform-tools\\adb.exe\" -OutputPath \"E:\\Edge devices\\01-sustained-mobile-inference\\logs\\runs\\20260612-083526-MBH-N49-bai4-npu-controlled-50iter-long-npu\\thermal-timeseries.csv\" -IntervalSec \"5\" "
+    },
+    {
+        "ProcessId":  16912,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy Bypass -File \"E:\\Edge devices\\01-sustained-mobile-inference\\scripts\\collector_top.ps1\" -AdbPath \"E:\\Edge devices\\01-sustained-mobile-inference\\tools\\android\\platform-tools\\adb.exe\" -OutputPath \"E:\\Edge devices\\01-sustained-mobile-inference\\logs\\runs\\20260612-083526-MBH-N49-bai4-npu-controlled-50iter-long-npu\\top-timeseries.csv\" -IntervalSec \"5\" "
+    },
+    {
+        "ProcessId":  4036,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -ExecutionPolicy Bypass -File \"E:\\Edge devices\\01-sustained-mobile-inference\\scripts\\collector_meminfo.ps1\" -AdbPath \"E:\\Edge devices\\01-sustained-mobile-inference\\tools\\android\\platform-tools\\adb.exe\" -OutputPath \"E:\\Edge devices\\01-sustained-mobile-inference\\logs\\runs\\20260612-083526-MBH-N49-bai4-npu-controlled-50iter-long-npu\\meminfo-timeseries.csv\" -AppPackage \"com.example.qnn_litertlm_gemma\" -IntervalSec \"10\" "
+    },
+    {
+        "ProcessId":  1756,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;\n$targets = Get-CimInstance Win32_Process | Where-Object { $_.Name -like \u0027powershell*\u0027 -and ($_.CommandLine -match \u002720260612-083526-MBH-N49-bai4-npu-controlled|run_mobile_prompt_backend_matrix|run_litert_lm_benchmark|collector_\u0027) }\n$checkpoint=\u002704-failure-aware-mobile-llm-benchmarking/artifacts/checkpoints/20260612-0910-phone-returned-to-user\u0027\nNew-Item -ItemType Directory -Force -Path $checkpoint | Out-Null\n$targets | Select-Object ProcessId,CommandLine | ConvertTo-Json -Depth 4 | Set-Content -Encoding UTF8 (Join-Path $checkpoint \u0027stopped-phone-processes.json\u0027)\nforeach ($p in $targets) { if ($p.ProcessId -ne $PID) { Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue } }\n$adb=\u0027E:\\Edge devices\\01-sustained-mobile-inference\\tools\\android\\platform-tools\\adb.exe\u0027\n\u0026 $adb shell am force-stop com.example.qnn_litertlm_gemma | Out-Null\n\u0026 $adb shell am force-stop com.example.gemma_on_device | Out-Null\nStart-Sleep -Seconds 2\n$summary=@()\n$summary += \u0027# Phone returned to user checkpoint\u0027\n$summary += \u0027\u0027\n$summary += \\\"Time: $(Get-Date -Format \u0027yyyy-MM-dd HH:mm:ss zzz\u0027)\\\"\n$summary += \u0027\u0027\n$summary += \u0027Stopped the active phone NPU controlled matrix and collectors because the user needs the phone.\u0027\n$summary += \u0027\u0027\n$summary += \u0027Partial result before stopping:\u0027\n$summary += \u0027- short/NPU completed with summary.\u0027\n$summary += \u0027- medium/NPU was stuck/no benchmark CSV; it was interrupted and should be treated as partial/invalid unless later summarized carefully.\u0027\n$summary += \u0027- long/NPU was active when the stop request came; treat as interrupted/invalid unless valid CSV exists.\u0027\n$summary | Set-Content -Encoding UTF8 (Join-Path $checkpoint \u0027checkpoint-summary.md\u0027)\nGet-CimInstance Win32_Process | Where-Object { $_.Name -like \u0027powershell*\u0027 -and ($_.CommandLine -match \u002720260612-083526-MBH-N49-bai4-npu-controlled|run_mobile_prompt_backend_matrix|run_litert_lm_benchmark|collector_\u0027) } | Select-Object ProcessId,CommandLine\nGet-Content -Raw (Join-Path $checkpoint \u0027checkpoint-summary.md\u0027)\""
+    }
+]

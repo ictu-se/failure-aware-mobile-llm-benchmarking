@@ -1,0 +1,10 @@
+model,prompt,backend,strict_only,runs,ok_rows,mean_of_run_means_tok_s,sd_of_run_means_tok_s,max_thermal_c
+gemma4-e2b-sm8750,long,NPU,False,29,565,43.914655,8.732797,104.6
+gemma4-e2b-sm8750,long,CPU,False,3,70,38.721033,1.400802,103.1
+gemma4-e2b-sm8750,long,GPU,False,2,50,37.8785,0.4293,102.3
+gemma4-e2b-sm8750,medium,NPU,False,29,652,39.96761,7.489051,105.4
+gemma4-e2b-sm8750,medium,CPU,False,2,50,28.4465,0.6906,98.1
+gemma4-e2b-sm8750,short,NPU,False,36,817,43.983008,4.240309,102.3
+gemma4-e2b-sm8750,short,CPU,False,9,174,43.289522,3.027504,102.7
+gemma4-e2b-sm8750,short,GPU,False,7,162,42.826486,2.316225,103.5
+gemma4-e2b-sm8750,unknown,NPU,False,6,27,53.69395,2.967136,82.6

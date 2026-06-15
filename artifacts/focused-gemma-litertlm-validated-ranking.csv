@@ -1,0 +1,5 @@
+model,prompt,backend,strict_only,runs,ok_rows,mean_of_run_means_tok_s,sd_of_run_means_tok_s,max_thermal_c
+gemma4-e2b-sm8750,long,NPU,True,29,565,43.914655,8.732797,104.6
+gemma4-e2b-sm8750,medium,NPU,True,29,652,39.96761,7.489051,105.4
+gemma4-e2b-sm8750,short,NPU,True,36,817,43.983008,4.240309,102.3
+gemma4-e2b-sm8750,unknown,NPU,True,6,27,53.69395,2.967136,82.6

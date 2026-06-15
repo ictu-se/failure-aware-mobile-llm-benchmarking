@@ -1,0 +1,18 @@
+﻿[
+    {
+        "ProcessId":  7800,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -ExecutionPolicy Bypass -File \"E:\\Edge devices\\04-failure-aware-mobile-llm-benchmarking\\scripts\\run_offline_validation_marathon.ps1\" -Hours 17.107 -SleepSeconds 90 "
+    },
+    {
+        "ProcessId":  16872,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -ExecutionPolicy Bypass -File \"E:\\Edge devices\\04-failure-aware-mobile-llm-benchmarking\\scripts\\wait_and_run_strict_repeat.ps1\" -Hours 17.107 -PollSeconds 20 -Iterations 50 -Warmup 3 -DeviceLabel MBH-N49 "
+    },
+    {
+        "ProcessId":  14872,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -ExecutionPolicy Bypass -File \"E:\\Edge devices\\04-failure-aware-mobile-llm-benchmarking\\scripts\\run_desktop_analysis_marathon.ps1\" -Hours 16.901 -SleepSeconds 120 "
+    },
+    {
+        "ProcessId":  17140,
+        "CommandLine":  "\"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -Command \"[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;\n$targets = Get-CimInstance Win32_Process | Where-Object { $_.Name -like \u0027powershell*\u0027 -and ($_.CommandLine -match \u0027run_desktop_analysis_marathon|run_offline_validation_marathon|wait_and_run_strict_repeat\u0027) }\n$pauseDir=\u002704-failure-aware-mobile-llm-benchmarking/artifacts/checkpoints/20260611-2255-paused-for-phone-priority\u0027\nNew-Item -ItemType Directory -Force -Path $pauseDir | Out-Null\n$targets | Select-Object ProcessId,CommandLine | ConvertTo-Json -Depth 4 | Set-Content -Encoding UTF8 (Join-Path $pauseDir \u0027stopped-processes.json\u0027)\nforeach ($p in $targets) {\n  if ($p.ProcessId -ne $PID) {\n    Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue\n  }\n}\n@(\n\u0027# Paused for phone priority\u0027,\n\u0027\u0027,\n\\\"Time: $(Get-Date -Format \u0027yyyy-MM-dd HH:mm:ss zzz\u0027)\\\",\n\u0027\u0027,\n\u0027Desktop/offline analysis runners were stopped because the user wants to prioritize phone experiments until 06:00.\u0027,\n\u0027\u0027,\n\u0027Next action: start ADB waiter and launch strict phone repeat when device appears.\u0027\n) | Set-Content -Encoding UTF8 (Join-Path $pauseDir \u0027checkpoint-summary.md\u0027)\nStart-Sleep -Seconds 2\nGet-CimInstance Win32_Process | Where-Object { $_.Name -like \u0027powershell*\u0027 -and ($_.CommandLine -match \u0027run_desktop_analysis_marathon|run_offline_validation_marathon|wait_and_run_strict_repeat\u0027) } | Select-Object ProcessId,CommandLine\""
+    }
+]

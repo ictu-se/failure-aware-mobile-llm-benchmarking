@@ -1,0 +1,16 @@
+model,prompt,backend,strict_only,runs,ok_rows,mean_of_run_means_tok_s,sd_of_run_means_tok_s,max_thermal_c
+fastvlm-0.5b-sm8750,long,NPU,True,15,45,98.531027,5.608298,72.9
+fastvlm-0.5b-sm8750,medium,NPU,True,15,45,90.300633,9.583566,66.8
+fastvlm-0.5b-sm8750,short,NPU,True,19,57,94.846137,12.011608,73.7
+fastvlm-0.5b-sm8750,unknown,NPU,True,9,42,87.480367,11.330525,61.0
+gemma4-e2b,long,CPU,True,7,209,20.856571,3.136759,80.7
+gemma4-e2b,medium,CPU,True,7,209,20.449343,8.382005,85.3
+gemma4-e2b,short,CPU,True,9,215,26.895456,5.733562,83.0
+gemma4-e2b-sm8750,long,NPU,True,29,565,43.914655,8.732797,104.6
+gemma4-e2b-sm8750,medium,NPU,True,29,652,39.96761,7.489051,105.4
+gemma4-e2b-sm8750,short,NPU,True,36,817,43.983008,4.240309,102.3
+gemma4-e2b-sm8750,unknown,NPU,True,6,27,53.69395,2.967136,82.6
+phi3-mini-4k-instruct-onnx-cpu-int4,long,CPU,True,7,21,15.826167,5.135834,
+phi3-mini-4k-instruct-onnx-cpu-int4,medium,CPU,True,7,21,16.672386,3.707901,
+phi3-mini-4k-instruct-onnx-cpu-int4,short,CPU,True,9,27,6.065474,8.739934,
+tiny-random-gpt2-fp32,short,CPU,True,1,3,14529.2599,0.0,

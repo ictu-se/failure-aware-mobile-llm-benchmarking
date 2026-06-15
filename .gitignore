@@ -1,0 +1,15 @@
+# LaTeX build intermediates
+paper-springer/*.aux
+paper-springer/*.blg
+paper-springer/*.fdb_latexmk
+paper-springer/*.fls
+paper-springer/*.log
+paper-springer/*.out
+
+# Local manuscript files: do not commit or push manuscript/source PDF
+paper-springer/
+00_SUBMISSION/
+_LOCAL_MANUSCRIPT_DO_NOT_COMMIT/
+
+# Local OS/editor files
+.DS_Store

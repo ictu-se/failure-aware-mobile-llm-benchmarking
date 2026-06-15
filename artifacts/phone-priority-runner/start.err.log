@@ -1,0 +1,8 @@
+powershell : /sdcard/Android/data/com.example.gemma_on_device/files/Documents/benchmarks/20260608-202445-MBH-N49-bai4-s
+trict-backend-priority-short-cpu.csv: 1 file pulled, 0 skipped. 2.4 MB/s (5057 bytes in 0.002s)
+At E:\Edge devices\04-failure-aware-mobile-llm-benchmarking\scripts\run_phone_priority_when_adb_ready.ps1:107 char:1
++ powershell -ExecutionPolicy Bypass -File $StrictRunner `
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (/sdcard/Android...ytes in 0.002s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

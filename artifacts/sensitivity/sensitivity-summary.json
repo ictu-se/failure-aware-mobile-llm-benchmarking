@@ -1,0 +1,65 @@
+{
+  "inventory": "04-failure-aware-mobile-llm-benchmarking\\artifacts\\focused-gemma-litertlm-inventory.csv",
+  "runs": 123,
+  "validity_notes": {
+    "ok": 20,
+    "ok_high_thermal": 19,
+    "ok_usb_powered": 61,
+    "reported_backend_mismatch": 23
+  },
+  "requested_reported": {
+    "CPU->NPU": 14,
+    "GPU->NPU": 9,
+    "NPU->NPU": 100
+  },
+  "thermal_thresholds": [
+    {
+      "thermal_threshold_c": 80,
+      "runs_with_thermal": 123,
+      "runs_at_or_above_threshold": 89,
+      "strict_valid_at_or_above": 69,
+      "backend_mismatch_at_or_above": 20,
+      "share_at_or_above": 0.723577
+    },
+    {
+      "thermal_threshold_c": 85,
+      "runs_with_thermal": 123,
+      "runs_at_or_above_threshold": 75,
+      "strict_valid_at_or_above": 55,
+      "backend_mismatch_at_or_above": 20,
+      "share_at_or_above": 0.609756
+    },
+    {
+      "thermal_threshold_c": 90,
+      "runs_with_thermal": 123,
+      "runs_at_or_above_threshold": 58,
+      "strict_valid_at_or_above": 41,
+      "backend_mismatch_at_or_above": 17,
+      "share_at_or_above": 0.471545
+    },
+    {
+      "thermal_threshold_c": 95,
+      "runs_with_thermal": 123,
+      "runs_at_or_above_threshold": 39,
+      "strict_valid_at_or_above": 27,
+      "backend_mismatch_at_or_above": 12,
+      "share_at_or_above": 0.317073
+    },
+    {
+      "thermal_threshold_c": 100,
+      "runs_with_thermal": 123,
+      "runs_at_or_above_threshold": 26,
+      "strict_valid_at_or_above": 19,
+      "backend_mismatch_at_or_above": 7,
+      "share_at_or_above": 0.211382
+    },
+    {
+      "thermal_threshold_c": 105,
+      "runs_with_thermal": 123,
+      "runs_at_or_above_threshold": 5,
+      "strict_valid_at_or_above": 5,
+      "backend_mismatch_at_or_above": 0,
+      "share_at_or_above": 0.04065
+    }
+  ]
+}

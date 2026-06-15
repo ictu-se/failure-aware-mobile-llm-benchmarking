@@ -1,0 +1,11 @@
+﻿{
+    "state":  "running",
+    "progress_percent_time":  58.45,
+    "iteration":  319,
+    "current_step":  "sleep",
+    "started_at":  "2026-06-11T12:53:36.7179246+07:00",
+    "deadline":  "2026-06-12T06:00:01.9179246+07:00",
+    "updated_at":  "2026-06-11T22:53:34.6503325+07:00",
+    "artifacts_dir":  "E:\\Edge devices\\04-failure-aware-mobile-llm-benchmarking\\artifacts",
+    "notes":  "Sleeping before next validation pass."
+}

@@ -1,0 +1,3 @@
+requested_backend,reported_backends,runs
+CPU,NPU,14
+GPU,NPU,9

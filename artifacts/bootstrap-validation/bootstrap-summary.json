@@ -1,0 +1,88 @@
+{
+  "boot": 5000,
+  "seed": 20260611,
+  "metrics": [
+    {
+      "metric": "global_backend_mismatch_share",
+      "n": 316,
+      "mean": 0.104549,
+      "ci95_low": 0.072785,
+      "ci95_high": 0.139241
+    },
+    {
+      "metric": "global_partial_or_missing_share",
+      "n": 316,
+      "mean": 0.116972,
+      "ci95_low": 0.082278,
+      "ci95_high": 0.155063
+    },
+    {
+      "metric": "global_all_measurements_failed_share",
+      "n": 316,
+      "mean": 0.08208,
+      "ci95_low": 0.053797,
+      "ci95_high": 0.113924
+    },
+    {
+      "metric": "focused_backend_mismatch_share",
+      "n": 123,
+      "mean": 0.187397,
+      "ci95_low": 0.121951,
+      "ci95_high": 0.260163
+    },
+    {
+      "metric": "focused_high_thermal_ge100_share",
+      "n": 123,
+      "mean": 0.210676,
+      "ci95_low": 0.138211,
+      "ci95_high": 0.284553
+    },
+    {
+      "metric": "focused_usb_powered_share",
+      "n": 123,
+      "mean": 0.495803,
+      "ci95_low": 0.406504,
+      "ci95_high": 0.585366
+    },
+    {
+      "metric": "strict_cpu_long_mean_tok_s",
+      "n": 4,
+      "mean": 18.250611,
+      "ci95_low": 16.953875,
+      "ci95_high": 19.369325
+    },
+    {
+      "metric": "strict_cpu_medium_mean_tok_s",
+      "n": 4,
+      "mean": 13.204953,
+      "ci95_low": 12.67585,
+      "ci95_high": 13.939825
+    },
+    {
+      "metric": "strict_cpu_short_mean_tok_s",
+      "n": 5,
+      "mean": 22.952888,
+      "ci95_low": 18.80568,
+      "ci95_high": 25.75122
+    },
+    {
+      "metric": "strict_gpu_success_share",
+      "n": 13,
+      "mean": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.0
+    }
+  ],
+  "focused_mismatch_breakdown": [
+    {
+      "requested_backend": "CPU",
+      "reported_backends": "NPU",
+      "runs": 14
+    },
+    {
+      "requested_backend": "GPU",
+      "reported_backends": "NPU",
+      "runs": 9
+    }
+  ]
+}

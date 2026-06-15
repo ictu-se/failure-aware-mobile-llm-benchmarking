@@ -1,0 +1,8 @@
+validity_note,runs
+all_measurements_failed,26
+backend_unknown,15
+ok,64
+ok_high_thermal,19
+ok_usb_powered,122
+partial_or_missing_completion,37
+reported_backend_mismatch,33

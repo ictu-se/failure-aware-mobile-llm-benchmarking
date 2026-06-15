@@ -1,0 +1,10 @@
+﻿{
+    "state":  "running",
+    "progress_percent_time":  7.77,
+    "iteration":  28,
+    "current_step":  "sleep",
+    "started_at":  "2026-06-12T09:09:42.9376744+07:00",
+    "deadline":  "2026-06-12T22:59:59.7376744+07:00",
+    "updated_at":  "2026-06-12T10:14:12.4968564+07:00",
+    "notes":  ""
+}
